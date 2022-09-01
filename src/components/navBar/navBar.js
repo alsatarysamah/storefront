@@ -10,7 +10,7 @@ export default function NavBarToDo() {
       <nav class="bp4-navbar .modifier">
         <div class="bp4-navbar-group bp4-align-left">
           <div class="bp4-navbar-heading" className="link">
-            TO DO
+           Perfect Store
           </div>
         </div>
         <div class="bp4-navbar-group bp4-align-right">
