@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/storefront/static/css/main.0ac7e51e.css",
-    "main.js": "/storefront/static/js/main.c1c0c610.js",
-    "static/js/787.4a7b1459.chunk.js": "/storefront/static/js/787.4a7b1459.chunk.js",
+    "main.css": "/storefront/static/css/main.c141ead7.css",
+    "main.js": "/storefront/static/js/main.e6064c91.js",
+    "static/js/787.050db488.chunk.js": "/storefront/static/js/787.050db488.chunk.js",
     "static/media/blueprint-icons-20.eot?": "/storefront/static/media/blueprint-icons-20.41ddc43fc03d2ac8fce8.eot",
     "static/media/blueprint-icons-20.ttf?": "/storefront/static/media/blueprint-icons-20.825b946a5ee739f0afc3.ttf",
     "static/media/blueprint-icons-16.eot?": "/storefront/static/media/blueprint-icons-16.98964adeba68b1b17c20.eot",
@@ -13,12 +13,12 @@
     "static/media/blueprint-icons-16.woff2?": "/storefront/static/media/blueprint-icons-16.1cfa3606a45bf6aaf201.woff2",
     "static/media/logo.svg": "/storefront/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/storefront/index.html",
-    "main.0ac7e51e.css.map": "/storefront/static/css/main.0ac7e51e.css.map",
-    "main.c1c0c610.js.map": "/storefront/static/js/main.c1c0c610.js.map",
-    "787.4a7b1459.chunk.js.map": "/storefront/static/js/787.4a7b1459.chunk.js.map"
+    "main.c141ead7.css.map": "/storefront/static/css/main.c141ead7.css.map",
+    "main.e6064c91.js.map": "/storefront/static/js/main.e6064c91.js.map",
+    "787.050db488.chunk.js.map": "/storefront/static/js/787.050db488.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0ac7e51e.css",
-    "static/js/main.c1c0c610.js"
+    "static/css/main.c141ead7.css",
+    "static/js/main.e6064c91.js"
   ]
 }
