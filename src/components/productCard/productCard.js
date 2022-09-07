@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useEffect, useState } from "react";
 import { styled } from "@mui/material/styles";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
@@ -10,7 +11,10 @@ import Avatar from "@mui/material/Avatar";
 import IconButton, { IconButtonProps } from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import { red } from "@mui/material/colors";
-import "./productCard.css"
+import { connect } from "react-redux";
+import "./productCard.css";
+import product, { reduceInventoryCount } from "../../store/product";
+import { addToCart } from "../../store/cart";
 // import FavoriteIcon from '@mui/icons-material/Favorite';
 // import ShareIcon from '@mui/icons-material/Share';
 // import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -31,49 +35,69 @@ import "./productCard.css"
 //   }),
 // }));
 
-export default function ProductCard(props) {
-  // const [expanded, setExpanded] = React.useState(false);
+function ProductCard(props) {
+  const [count, setCount] = useState(props?.product?.product[0].inventoryCount);
+const [cart,setCart]=useState([]);
+  console.log("eeeeeeeeeeeeeeee", props?.product);
 
-  // const handleExpandClick = () => {
-  //   setExpanded(!expanded);
-  // };
-  // let arr=props.element.filter(()=>element.)
-console.log("eeeeeeeeeeeeeeee",props?.element);
   return (
-    <Card className="productCard" sx={{ maxWidth: 345 }} >
-      <CardHeader
-      className="header"
-        avatar={
-          <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            {props?.element?.name[0].toUpperCase()}
-          </Avatar>
-        }
-        action={<IconButton aria-label="settings"></IconButton>}
-        title={`${props?.element?.name}`}
-      />
-      {/* <CardMedia
+    <>
+    {props?.product?.product.map((element)=>(
+      <Card className="productCard" sx={{ maxWidth: 345 }}>
+        <CardHeader
+          className="header"
+          avatar={
+            <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
+              {element.name[0].toUpperCase()}
+            </Avatar>
+          }
+          action={<IconButton aria-label="settings"></IconButton>}
+          title={element.name}
+        />
+        {/* <CardMedia
         component="img"
         height="194"
         image="src/components/productCard/product.png"
         alt="Paella dish"
       /> */}
-      <CardContent>
-        <Typography variant="body2" color="text">
-          description: {`${props?.element?.description}`}
-        </Typography>
-        <Typography variant="body2" color="text">
-          price: {`${props?.element?.price}`}
-        </Typography>
-        <Typography variant="body2" color="text">
-          inventoryCount: {`${props?.element?.inventoryCount}`}
-        </Typography>
-      </CardContent>
-      <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          {/* <FavoriteIcon /> */}
-        </IconButton>
-        <IconButton aria-label="share"></IconButton>
-      </CardActions>
-    </Card>
+        <CardContent>
+          <Typography variant="body2" color="text">
+            description: {element.description}
+          </Typography>
+          <Typography variant="body2" color="text">
+            price: {element.price}
+          </Typography>
+          <Typography variant="body2" color="text">
+            inventoryCount: {count}
+          </Typography>
+        </CardContent>
+        <CardActions disableSpacing>
+          <IconButton aria-label="add to favorites">
+            {/* <FavoriteIcon /> */}
+          </IconButton>
+          <IconButton
+            id="add"
+            onClick={() => {
+              
+              props.reduceInventoryCount(element.name);
+              props.addToCart(element);
+              setCount(element.inventoryCount);
+            
+            }}
+          >
+            Add 
+          </IconButton>
+        </CardActions>
+      </Card>))}
+    </>
   );
 }
+
+const mapDispatchToProps = { reduceInventoryCount, addToCart };
+
+const mapStateToProps = (state) => ({
+  cate: state.cate,
+  product: state.product,
+  cart: state.cart.item,
+});
+export default connect(mapStateToProps, mapDispatchToProps)(ProductCard);

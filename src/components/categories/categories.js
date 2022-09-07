@@ -19,6 +19,7 @@ function Categories(props) {
             
           }}
         />
+        
         <Tab
           label="CLOTHES"
           onClick={() => {
