@@ -2,9 +2,11 @@
 // import { LoginContext } from "../../context/login"
 // import {When} from 'react-if';
 // import { useContext } from 'react';
-
-export default function NavBarToDo() {
+import { connect } from "react-redux";
+ function NavBarToDo(props) {
   // const login=useContext(LoginContext);
+  console.log("length ",props.cart);
+  //({props?.cart?.item.length})
   return (
     <>
       <nav class="bp4-navbar .modifier">
@@ -20,10 +22,17 @@ export default function NavBarToDo() {
           {/* <a href='/userForm'>form</a> */}
           <span class="bp4-navbar-divider"></span>
 
-          <button class="bp4-button bp4-minimal bp4-icon-notifications"></button>
+          <button class="bp4-button bp4-minimal ">Cart ({props?.cart?.length-1})</button>
           <button class="bp4-button bp4-minimal bp4-icon-cog"></button>
         </div>
       </nav>
     </>
   );
 }
+
+const mapStateToProps = (state) => ({
+  cate: state.cate,
+  product: state.product,
+  cart: state.cart,
+});
+export default connect(mapStateToProps)(NavBarToDo);

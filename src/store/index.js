@@ -1,12 +1,14 @@
 import { combineReducers, createStore } from 'redux';
 import cate from "./cat"
 import product from "./product"
+import cart from "./cart"
 
-let catReducers = combineReducers({ cate });
+// let catReducers = combineReducers({ cate });
 
 let reducers = combineReducers({
     cate: cate,
-    product: product
+    product: product,
+    cart:cart
 })
 
 const store = () => {

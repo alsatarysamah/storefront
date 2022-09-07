@@ -36,7 +36,7 @@ export default (state=initialState,action)=>{
 }
 
 export const changeActive = (name) => {
-   
+   console.log(name);
     return {
         type: 'CHANGE',
         payload: name
