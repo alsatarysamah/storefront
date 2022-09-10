@@ -1,0 +1,41 @@
+@import 'animate.css';
+
+.card {
+    box-shadow: 0 4px 8px 0 #224B0C;
+    transition: 0.3s;
+    border-radius: 10px; 
+    width: 17%;
+    color: #224B0C;
+    background-color: #feffeb;
+    margin-left: 10px;
+
+  }
+  
+  /* On mouse-over, add a deeper shadow */
+  .card:hover {
+    box-shadow: 0 8px 16px 0 #feffeb;
+  }
+  
+  /* Add some padding inside the card container */
+  .container {
+    padding: 2px 16px;
+  }
+
+  
+#add{
+  border-radius: 5px;
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #224B0C;
+  text-align: center;
+  cursor: pointer;
+  width: 50%;
+  font-size: 18px;
+}
+
+#add:hover{
+ background-color: #AC4425;
+ color: #F0F2B6; 
+}

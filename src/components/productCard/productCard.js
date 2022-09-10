@@ -15,6 +15,7 @@ import { connect } from "react-redux";
 import "./productCard.css";
 import product, { reduceInventoryCount } from "../../store/product";
 import { addToCart } from "../../store/cart";
+import {filterProduct}  from "../../store/product"
 // import FavoriteIcon from '@mui/icons-material/Favorite';
 // import ShareIcon from '@mui/icons-material/Share';
 // import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -36,13 +37,17 @@ import { addToCart } from "../../store/cart";
 // }));
 
 function ProductCard(props) {
-  const [count, setCount] = useState(props?.product?.product[0].inventoryCount);
+  const [count, setCount] = useState(props?.product?.inventoryCount);
 const [cart,setCart]=useState([]);
-  console.log("eeeeeeeeeeeeeeee", props?.product);
-
+  // console.log("card card", props?.product);
+// useEffect(()=>{
+// // props.getRe
+//   if(props.cate.activeCat!="")
+//   props.filterProduct(props.cate.activeCat)
+// },[])
   return (
     <>
-    {props?.product?.product.map((element)=>(
+    {props?.product?.map((element)=>(
       <Card className="productCard" sx={{ maxWidth: 345 }}>
         <CardHeader
           className="header"
@@ -54,12 +59,7 @@ const [cart,setCart]=useState([]);
           action={<IconButton aria-label="settings"></IconButton>}
           title={element.name}
         />
-        {/* <CardMedia
-        component="img"
-        height="194"
-        image="src/components/productCard/product.png"
-        alt="Paella dish"
-      /> */}
+       
         <CardContent>
           <Typography variant="body2" color="text">
             description: {element.description}
@@ -68,7 +68,7 @@ const [cart,setCart]=useState([]);
             price: {element.price}
           </Typography>
           <Typography variant="body2" color="text">
-            inventoryCount: {count}
+            inventoryCount: {element.inventoryCount}
           </Typography>
         </CardContent>
         <CardActions disableSpacing>
@@ -93,7 +93,7 @@ const [cart,setCart]=useState([]);
   );
 }
 
-const mapDispatchToProps = { reduceInventoryCount, addToCart };
+const mapDispatchToProps = { reduceInventoryCount, addToCart,filterProduct };
 
 const mapStateToProps = (state) => ({
   cate: state.cate,

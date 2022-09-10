@@ -1,8 +1,10 @@
 import "./simpleCart.css"
 import { connect } from "react-redux";
-// import {addToCart}
+import {useEffect} from "react";
+import 'animate.css';
  function SimpleCart(props){
-    console.log("cart ",props?.cart);
+  // useEffect(()=>{},[])
+    // console.log("cart 77777777 ",props?.cart);
     return(
         <div id="cart" >
             <h3>Cart</h3>
@@ -12,7 +14,7 @@ import { connect } from "react-redux";
                 // if(element?.item?.name!="")
                 return(
                 
-                    element?.item?.name!=""&& <p key={idx}>{element?.item?.name}</p>
+                   <p class=" animate__flipOutX " key={idx}>{element?.item?.name}</p>
        
         
       )}
