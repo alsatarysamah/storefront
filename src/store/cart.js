@@ -16,8 +16,8 @@ const initialState = [
 
 export default (state = initialState, action) => {
   const { type, payload } = action;
-  console.log( {state} );
-  console.log({ payload });
+  // console.log( {state} );
+  // console.log({ payload });
   switch (type) {
     case "ADD":
         state.push(payload);
@@ -25,27 +25,27 @@ export default (state = initialState, action) => {
 
 
     default:
-      return initialState;
+      return state;
   }
 };
 
 export const addToCart = (item) => {
-  console.log("dispatch cart");
-  console.log({ item });
+  // console.log("dispatch cart");
+  // console.log({ item });
   return {
     type: "ADD",
     payload: { item },
   };
 };
 export const reset = () => {
-  console.log("dispatch reset");
+  // console.log("dispatch reset");
   return {
     type: "RESET",
   };
 };
 
 export const reduceInventoryCount = (name) => {
-  console.log("dispatch update");
+  // console.log("dispatch update");
   return {
     type: "REDUCE",
     payload: name,

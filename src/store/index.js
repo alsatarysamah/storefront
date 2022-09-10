@@ -1,8 +1,9 @@
-import { combineReducers, createStore } from 'redux';
+import { combineReducers, createStore,applyMiddleware } from 'redux';
 import cate from "./cat"
+import { composeWithDevTools } from 'redux-devtools-extension';
 import product from "./product"
 import cart from "./cart"
-
+import thunk from 'redux-thunk';
 // let catReducers = combineReducers({ cate });
 
 let reducers = combineReducers({
@@ -12,8 +13,8 @@ let reducers = combineReducers({
 })
 
 const store = () => {
-    return createStore(reducers);
-
+    return createStore(reducers,applyMiddleware(thunk));
+//,composeWithDevTools(thunk)
     // return createStore(counter);
     // return createStore(catReducers);
 

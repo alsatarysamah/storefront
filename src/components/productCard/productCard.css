@@ -2,13 +2,3 @@
     background-color: #F0F2B6;
     color: #AC4425;
 }
-
-#add{
-    color: #AC4425;
-   font-size:large;
-}
-
-#add:hover{
-   background-color: #AC4425;
-   color: #F0F2B6; 
-}
