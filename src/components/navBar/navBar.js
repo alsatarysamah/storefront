@@ -3,6 +3,7 @@
 // import {When} from 'react-if';
 // import { useContext } from 'react';
 import { connect } from "react-redux";
+
 import 'animate.css';
 import "./navBar.css"
  function NavBarToDo(props) {

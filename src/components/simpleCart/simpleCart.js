@@ -2,6 +2,8 @@ import "./simpleCart.css"
 import { connect } from "react-redux";
 import {useEffect} from "react";
 import 'animate.css';
+import {removeCart} from "../../store/cart"
+import CancelPresentationIcon from '@mui/icons-material/CancelPresentation';
  function SimpleCart(props){
   // useEffect(()=>{},[])
     // console.log("cart 77777777 ",props?.cart);
@@ -10,11 +12,15 @@ import 'animate.css';
             <h3>Cart</h3>
             
             {props?.cart?.map((element, idx) => {
-                // console.log(element.item.name);
-                // if(element?.item?.name!="")
+                console.log("nameeeeeeeeee ",element.item);
+                if(element.item)
                 return(
                 
-                   <p class=" animate__flipOutX " key={idx}>{element?.item?.name}</p>
+                 element.price!=""&&  <p class=" animate__flipOutX " rel="shortcut icon" key={idx}>
+
+                  <CancelPresentationIcon id="cancle" onClick={()=>{props.removeCart(element.item)}}  ></CancelPresentationIcon>
+                    
+                    {element?.item?.name}</p>
        
         
       )}
@@ -22,7 +28,7 @@ import 'animate.css';
         </div>
     )
 }
-const mapDispatchToProps = { };
+const mapDispatchToProps = { removeCart};
 
 const mapStateToProps = (state) => ({
   cate: state.cate,
